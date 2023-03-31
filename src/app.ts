@@ -100,6 +100,7 @@ interface User {
         title: form.todo.value,
         completed: false,
       });
+      form.todo.value = '';
     }
   }
   function handleTodoChange(this: HTMLInputElement) {
@@ -121,7 +122,7 @@ interface User {
   }
 
   // Async logic
-  async function getAllTodos() {
+  async function getAllTodos(): Promise<Todo[]> {
     try {
       const response = await fetch(
         'https://jsonplaceholder.typicode.com/todos?_limit=15'
@@ -132,10 +133,12 @@ interface User {
     } catch (error) {
       if(error instanceof Error)
        alertError(error);
+
+       return []
     }
   }
 
-  async function getAllUsers() {
+  async function getAllUsers(): Promise<User[]> {
     try {
       const response = await fetch(
         'https://jsonplaceholder.typicode.com/users?_limit=5'
@@ -146,6 +149,8 @@ interface User {
     } catch (error) {
       if(error instanceof Error)
        alertError(error);
+
+       return []
     }
   }
 

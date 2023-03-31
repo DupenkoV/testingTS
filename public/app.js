@@ -80,6 +80,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
                 title: form.todo.value,
                 completed: false,
             });
+            form.todo.value = '';
         }
     }
     function handleTodoChange() {
@@ -108,6 +109,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             catch (error) {
                 if (error instanceof Error)
                     alertError(error);
+                return [];
             }
         });
     }
@@ -121,6 +123,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             catch (error) {
                 if (error instanceof Error)
                     alertError(error);
+                return [];
             }
         });
     }
